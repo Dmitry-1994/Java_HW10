@@ -3,7 +3,7 @@ package ru.netology.Java_HW10.manager;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class FilmsManagerTestAdd {
+public class FilmsManagerAddTest {
 
     @Test
     public void addFilmsNull() {

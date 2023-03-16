@@ -2,7 +2,7 @@ package ru.netology.Java_HW10.manager;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class FilmsManagerTestFindLastWithoutParameter {
+public class FilmsManagerFindLastWithoutParameterTest {
     @Test
     public void findLastFilmsNull() {
         FilmsManager manager = new FilmsManager();
