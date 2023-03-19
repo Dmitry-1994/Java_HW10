@@ -1,44 +1,42 @@
 package ru.netology.Java_HW10.manager;
 
+import ru.netology.Java_HW10.item.FilmsItem;
+import ru.netology.Java_HW10.repository.FilmsRepository;
+
 public class FilmsManager {
-    private String[] films = new String[0];
+    private FilmsRepository repository;
     private int limit;
 
-    public FilmsManager() {
+    public FilmsManager(FilmsRepository repository){
+        this.repository = repository;
         this.limit = 10;
     }
 
-    public FilmsManager(int limit) {
+    public FilmsManager(FilmsRepository repository, int limit){
+        this.repository = repository;
         this.limit = limit;
     }
 
-    public void addFilm(String nameFilm) {
-        String[] tmp = new String[films.length + 1];
-        for (int i = 0; i < films.length; i++) {
-            tmp[i] = films[i];
-        }
-        tmp[tmp.length - 1] = nameFilm;
-        films = tmp;
-
-
+    public void addFilm(FilmsItem item){
+        repository.save(item);
     }
 
-    public String[] findAll() {
-        return films;
-
+    public FilmsItem[] findAll(){
+        return repository.findAll();
     }
 
-    public String[] findLast() {
+    public FilmsItem[] findLast() {
+        FilmsItem[] all = repository.findAll();
         int reversLength;
-        if (films.length < limit) {
-            reversLength = films.length;
+        if (all.length < limit) {
+            reversLength = all.length;
         } else {
             reversLength = limit;
         }
 
-        String[] revers = new String[reversLength];
+        FilmsItem[] revers = new FilmsItem[reversLength];
         for (int i = 0; i < revers.length; i++) {
-            revers[i] = films[films.length - 1 - i];
+            revers[i] = all[all.length - 1 - i];
         }
         return revers;
     }

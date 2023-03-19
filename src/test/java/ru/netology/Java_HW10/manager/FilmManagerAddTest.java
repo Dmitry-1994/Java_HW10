@@ -3,11 +3,11 @@ package ru.netology.Java_HW10.manager;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class FilmsManagerAddTest {
+public class FilmManagerAddTest {
 
     @Test
     public void addFilmsNull() {
-        FilmsManager manager = new FilmsManager();
+        FilmManager manager = new FilmManager();
 
         String[] expected = {};
         String[] actual = manager.findAll();
@@ -16,7 +16,7 @@ public class FilmsManagerAddTest {
 
     @Test
     public void addFilmsOne() {
-        FilmsManager manager = new FilmsManager();
+        FilmManager manager = new FilmManager();
 
 
         manager.addFilm("HarryPotter_I");
@@ -28,7 +28,7 @@ public class FilmsManagerAddTest {
 
     @Test
     public void addFilmsMore() {
-        FilmsManager manager = new FilmsManager();
+        FilmManager manager = new FilmManager();
 
         manager.addFilm("HarryPotter_I");
         manager.addFilm("HarryPotter_II");

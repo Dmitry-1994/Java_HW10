@@ -3,10 +3,10 @@ package ru.netology.Java_HW10.manager;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class FilmsManagerFindLastWithParameterTest {
+public class FilmManagerFindLastWithParameterTest {
     @Test
     public void findLastFilmsNullLimit() {
-        FilmsManager manager = new FilmsManager(0);
+        FilmManager manager = new FilmManager(0);
 
         String[] expected = {};
         String[] actual = manager.findLast();
@@ -15,7 +15,7 @@ public class FilmsManagerFindLastWithParameterTest {
 
     @Test
     public void findLastFilmsOneNullLimit() {
-        FilmsManager manager = new FilmsManager(0);
+        FilmManager manager = new FilmManager(0);
 
 
         manager.addFilm("HarryPotter_I");
@@ -27,7 +27,7 @@ public class FilmsManagerFindLastWithParameterTest {
 
     @Test
     public void addFilmsLimit() {
-        FilmsManager manager = new FilmsManager(5);
+        FilmManager manager = new FilmManager(5);
 
         manager.addFilm("HarryPotter_I");
         manager.addFilm("HarryPotter_II");
