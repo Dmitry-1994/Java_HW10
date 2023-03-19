@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import ru.netology.Java_HW10.item.FilmsItem;
 import ru.netology.Java_HW10.repository.FilmsRepository;
 
-public class FilmsManagerWithLimit {
+public class FilmsManagerWithParameterTest {
     FilmsRepository repository = new FilmsRepository();
     FilmsManager manager = new FilmsManager(repository, 6);
 
@@ -36,7 +36,7 @@ public class FilmsManagerWithLimit {
     }
 
     @Test
-    public void findLast() {
+    public void findLastLimit() {
         FilmsItem[] expected = {
                 item_10,
                 item_9,
@@ -45,6 +45,24 @@ public class FilmsManagerWithLimit {
                 item_6,
                 item_5,};
         FilmsItem[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void findAll() {
+        FilmsItem[] expected = {
+                item_1,
+                item_2,
+                item_3,
+                item_4,
+                item_5,
+                item_6,
+                item_7,
+                item_8,
+                item_9,
+                item_10};
+        FilmsItem[] actual = manager.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
     }

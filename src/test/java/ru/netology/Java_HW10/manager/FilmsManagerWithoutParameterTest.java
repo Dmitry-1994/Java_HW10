@@ -1,12 +1,11 @@
 package ru.netology.Java_HW10.manager;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.Java_HW10.item.FilmsItem;
 import ru.netology.Java_HW10.repository.FilmsRepository;
 
-public class FilmsManagerWithoutLimitTest {
+public class FilmsManagerWithoutParameterTest {
     FilmsRepository repository = new FilmsRepository();
     FilmsManager manager = new FilmsManager(repository);
 
