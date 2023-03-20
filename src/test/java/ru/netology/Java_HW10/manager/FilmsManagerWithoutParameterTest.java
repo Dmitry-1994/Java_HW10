@@ -2,11 +2,13 @@ package ru.netology.Java_HW10.manager;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import static  org.mockito.Mockito.*;
+import org.mockito.Mockito;
 import ru.netology.Java_HW10.item.FilmsItem;
 import ru.netology.Java_HW10.repository.FilmsRepository;
 
 public class FilmsManagerWithoutParameterTest {
-    FilmsRepository repository = new FilmsRepository();
+    FilmsRepository repository = Mockito.mock(FilmsRepository.class);
     FilmsManager manager = new FilmsManager(repository);
 
     FilmsItem item_1 = new FilmsItem(111, "HarryPotter_I");
@@ -24,6 +26,9 @@ public class FilmsManagerWithoutParameterTest {
 
     @Test
     public void findLastNull() {
+        FilmsItem[] items = {};
+        doReturn(items).when(repository).findAll();
+
         FilmsItem[] expected = {};
         FilmsItem[] actual = manager.findLast();
 
@@ -32,8 +37,8 @@ public class FilmsManagerWithoutParameterTest {
 
     @Test
     public void findLastOne() {
-
-        manager.addFilm(item_1);
+        FilmsItem[] items = {item_1};
+        doReturn(items).when(repository).findAll();
 
         FilmsItem[] expected = {item_1};
         FilmsItem[] actual = manager.findLast();
@@ -43,12 +48,13 @@ public class FilmsManagerWithoutParameterTest {
 
     @Test
     public void findLastMore() {
-
-        manager.addFilm(item_1);
-        manager.addFilm(item_2);
-        manager.addFilm(item_3);
-        manager.addFilm(item_4);
-        manager.addFilm(item_5);
+        FilmsItem[] items = {
+                item_1,
+                item_2,
+                item_3,
+                item_4,
+                item_5};
+        doReturn(items).when(repository).findAll();
 
         FilmsItem[] expected = {
                 item_5,
@@ -63,15 +69,17 @@ public class FilmsManagerWithoutParameterTest {
     @Test
     public void findLastLessLimit() {
 
-        manager.addFilm(item_1);
-        manager.addFilm(item_2);
-        manager.addFilm(item_3);
-        manager.addFilm(item_4);
-        manager.addFilm(item_5);
-        manager.addFilm(item_6);
-        manager.addFilm(item_7);
-        manager.addFilm(item_8);
-        manager.addFilm(item_9);
+        FilmsItem[] items = {
+                item_1,
+                item_2,
+                item_3,
+                item_4,
+                item_5,
+                item_6,
+                item_7,
+                item_8,
+                item_9};
+        doReturn(items).when(repository).findAll();
 
         FilmsItem[] expected = {
                 item_9,
@@ -90,16 +98,18 @@ public class FilmsManagerWithoutParameterTest {
     @Test
     public void findLastLimit() {
 
-        manager.addFilm(item_1);
-        manager.addFilm(item_2);
-        manager.addFilm(item_3);
-        manager.addFilm(item_4);
-        manager.addFilm(item_5);
-        manager.addFilm(item_6);
-        manager.addFilm(item_7);
-        manager.addFilm(item_8);
-        manager.addFilm(item_9);
-        manager.addFilm(item_10);
+        FilmsItem[] items = {
+                item_1,
+                item_2,
+                item_3,
+                item_4,
+                item_5,
+                item_6,
+                item_7,
+                item_8,
+                item_9,
+                item_10};
+        doReturn(items).when(repository).findAll();
 
         FilmsItem[] expected = {
                 item_10,
@@ -120,17 +130,19 @@ public class FilmsManagerWithoutParameterTest {
     @Test
     public void findLastMoreLimit() {
 
-        manager.addFilm(item_1);
-        manager.addFilm(item_2);
-        manager.addFilm(item_3);
-        manager.addFilm(item_4);
-        manager.addFilm(item_5);
-        manager.addFilm(item_6);
-        manager.addFilm(item_7);
-        manager.addFilm(item_8);
-        manager.addFilm(item_9);
-        manager.addFilm(item_10);
-        manager.addFilm(item_11);
+        FilmsItem[] items = {
+                item_1,
+                item_2,
+                item_3,
+                item_4,
+                item_5,
+                item_6,
+                item_7,
+                item_8,
+                item_9,
+                item_10,
+                item_11};
+        doReturn(items).when(repository).findAll();
 
         FilmsItem[] expected = {
                 item_11,
